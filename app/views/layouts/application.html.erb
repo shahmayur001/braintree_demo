@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BraintreeDemo</title>
+
+    <%= include_gon %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+    
+  </head>
+
+  <body>
+  <%=link_to "Logout",destroy_user_session_path,:method => :delete%>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+
+    <%= yield %>
+  </body>
+</html>

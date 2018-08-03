@@ -1,0 +1,41 @@
+<%= form_for(movie) do |f| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id, :value => current_user.id%>
+  </div>
+
+  <div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
+    <h2 class="mbs">New Transaction</h2>
+    <%#= form_tag transactions_path do%>
+      <p>Please enter your payment details:</p>
+      <div id="dropin" data-no-turbolink></div>
+    <%#end%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
